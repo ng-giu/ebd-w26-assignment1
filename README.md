@@ -5,6 +5,9 @@ EBD (BINF 503), Winter 2026. About 2 hours.
 By the end you will have VS Code, Git, and Node.js installed. You will make
 your first commit and your first push.
 
+Slides that walk through all of this step by step:
+[assignment-01.pdf](assignment-01.pdf).
+
 ## 1. Setup
 
 Install these, in order:
@@ -143,7 +146,9 @@ Both do the same thing. The Source Control tab is just buttons for
 
 ## 5. Submit
 
-Fill in the submission form (link on the CMS) with:
+Fill in the submission form: <https://forms.gle/1f44aaXxVKVtTfgZ8>
+
+With:
 
 - Your name
 - Your student ID
