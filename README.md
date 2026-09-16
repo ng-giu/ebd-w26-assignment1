@@ -47,6 +47,23 @@ Then make a **GitHub account** if you don't have one: <https://github.com/>
    - Click **Clone Repository**, paste your repo's URL, and pick a folder.
    - Use this button, not the terminal — you'll use this same tab again soon.
 
+### Opening the folder again later
+
+You'll need to do this every time you come back to this project.
+
+**Start from VS Code:**
+1. Open VS Code (Windows: search "VS Code" in the Start Menu. Mac: use
+   Spotlight, or find it in Launchpad).
+2. Click **File → Open Folder...** (or **Open Folder** on the Welcome screen).
+3. Find your repo folder, select it, then click **Select Folder** (Windows)
+   or **Open** (Mac).
+
+**Or start from your files:**
+1. Open your file manager (File Explorer on Windows, Finder on Mac).
+2. Find your repo folder.
+3. Right-click it → **Open with Code** (if you see that option), or just
+   drag the folder onto an open VS Code window.
+
 ## 3. Work through it, from the terminal
 
 Everything from here happens in a terminal, inside your project folder.
@@ -159,6 +176,8 @@ Push **before** you submit. We only check what's on GitHub.
 
 ## Troubleshooting
 
+- **VS Code opens but your project isn't there:** see "Opening the folder
+  again later" in step 2.
 - **`git` or `node` says "not found":** close and reopen your terminal.
 - **Windows: `ls` doesn't work.** Use Git Bash, or type `dir` instead.
 - **`Cannot find module`:** Node can't find the file where you are. Either
