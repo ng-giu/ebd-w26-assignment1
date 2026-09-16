@@ -1,122 +1,124 @@
 # Assignment 1 — Environment Setup and Development Basics
 
-EBD (BINF 503), Winter 2026. Budget about 2 hours.
+EBD (BINF 503), Winter 2026. About 2 hours.
 
-By the end of this you will have VS Code, Git, and Node.js installed and
-working together, and you will have made your first commits and pushes.
-Nothing here is "real" JavaScript yet — that's Assignment 2. This is just
-the plumbing: terminal, editor, version control, and running a file.
+By the end you will have VS Code, Git, and Node.js installed. You will make
+your first commit and your first push.
 
 ## 1. Setup
 
-Install, in this order:
+Install these, in order:
 
 1. **VS Code** — <https://code.visualstudio.com/>
-2. **Git** (Windows: this also gives you Git Bash) — <https://git-scm.com/downloads>
+2. **Git** — <https://git-scm.com/downloads> (Windows: this also installs Git Bash)
 3. **Node.js**, the **LTS** version — <https://nodejs.org/>
 
-**Windows users:** if VS Code or a terminal was already open when you
-installed Node.js, close and reopen it. A terminal that was open before the
-install can't see the new `node` command.
+**Windows:** close and reopen VS Code (and any terminal) after installing.
+It won't see `node` until you do.
 
-Open a terminal (VS Code's built-in terminal is fine: menu **Terminal → New
-Terminal**) and check both tools installed correctly:
+Open a terminal (VS Code: **Terminal → New Terminal**) and check both installed:
 
 ```bash
 git --version
 node -v
 ```
 
-If either command is "not found," the install didn't finish, or your
-terminal needs restarting.
+You should see a version number for each. If not, restart your terminal.
 
-Now set your git identity. **Your first commit will fail without this:**
+Now set your git identity. **Do this once — without it, your first commit will fail:**
 
 ```bash
 git config --global user.name "Your Name"
 git config --global user.email "your.email@student.giu-uni.de"
 ```
 
-Finally, create a **GitHub account** if you don't have one: <https://github.com/>
+Then make a **GitHub account** if you don't have one: <https://github.com/>
 
 ## 2. Get the repo
 
 1. On the assignment's GitHub page, click **Use this template → Create a new
-   repository**. This creates your own copy under your own account — not a
-   fork, so nobody else can browse your work.
+   repository**. Pick any name. Keep it on **your own GitHub account**.
 2. Clone **your** new repo and open it in VS Code:
    - Open VS Code.
-   - Click the **Source Control** icon in the left sidebar (it looks like a
-     branching line).
-   - Click **Clone Repository**, paste your repo's URL, and pick a folder on
-     your machine.
-   - Use this button, not `git clone` in the terminal — the point of this
-     step is learning where this lives in VS Code, since you'll use it again
-     later for commits.
+   - Click the **Source Control** icon in the left sidebar.
+   - Click **Clone Repository**, paste your repo's URL, and pick a folder.
+   - Use this button, not the terminal — you'll use this same tab again soon.
 
 ## 3. Work through it, from the terminal
 
 Everything from here happens in a terminal, inside your project folder.
-Open one from VS Code: **Terminal → New Terminal**.
+Open one: **Terminal → New Terminal**.
 
-First, a sanity check:
+This folder only has one file to run right now: `init.js`. Start there:
 
 ```bash
 node init.js
 ```
 
-This checks your Node version, your git identity, and that you actually
-cloned this repo (rather than downloading a ZIP, which has no git remote).
-It tells you exactly what to fix if something's wrong. Don't move on until
-it prints "Everything looks good."
+It checks that everything is set up right. If something is wrong, it tells
+you how to fix it. If everything is good, it creates `step1/hi.js` — a new
+file that wasn't there before.
 
-### Step 1 — paths
+### Step 1
+
+Run this:
 
 ```bash
-node step1/hi.js
+node hi.js
 ```
 
-Run it exactly like that, from the repo root, first. **It will fail.** Read
-the error — it tells you where your terminal currently is, where the file
-it needed actually lives, and the exact fix. Then do what it says:
+**It will fail**, with a big red error. Look for this line in it:
+
+```
+Error: Cannot find module '/.../hi.js'
+```
+
+Node looked for `hi.js` right where you are, and it's not there — it's
+inside `step1/`. Two ways to fix it:
 
 ```bash
 cd step1
 node hi.js
 ```
 
-This is the one lesson of the whole assignment that matters most: a
-filename like `"greeting.txt"` is resolved from wherever your terminal
-currently is, not from wherever the script file happens to sit on disk.
+or, without moving, give the full path instead:
+
+```bash
+node step1/hi.js
+```
+
+Either way works. Once it runs, it creates `step2/okay.js`.
 
 ### Step 2
 
+Get back to the project's root folder (tip: **Terminal → New Terminal** in
+VS Code always opens a fresh one there), then:
+
 ```bash
-cd ..
 cd step2
 node okay.js
 ```
 
-Same idea, no trap this time — just practice moving around with `cd`.
+Once it runs, it creates `assignment/generate.js`.
 
 ### The assignment
 
+Back to the root folder again, then:
+
 ```bash
-cd ..
 cd assignment
 node generate.js
 ```
 
-This asks you a few questions, then looks at **which GitHub account owns
-this repo's remote** and uses that to generate a small trial that's unique
-to you. It writes `question.md` in this folder — **read it**, it tells you
-exactly what to do.
+It asks you a few questions, then makes a small challenge just for you.
+It writes `question.md` in this folder — **read it**, it tells you exactly
+what to do.
 
-You'll then:
+Then:
 
-1. Create `solution.js` in the `assignment/` folder, following
-   `question.md`.
-2. Run it and check the output:
+1. Create `solution.js` in the `assignment/` folder. Make it print what
+   `question.md` asks, in the same order.
+2. Check it:
    ```bash
    node solution.js
    ```
@@ -124,22 +126,20 @@ You'll then:
 
 ## 4. Commit twice, two different ways
 
-VS Code and Git are two different things wearing the same interface, and
-this assignment wants you to notice that. You will commit **twice**:
+You will commit **two times**, in two different ways:
 
-1. **Commit `question.md` through VS Code's Source Control tab.** Stage it
-   (the `+` next to the file), write a commit message, click the checkmark
-   to commit, then click **Sync Changes** to push.
-2. **Commit `solution.js` from the terminal**, using the actual commands:
+1. **Commit `question.md` through VS Code's Source Control tab.** Stage it,
+   write a message, click the checkmark to commit, then click **Sync
+   Changes** to push.
+2. **Commit `solution.js` from the terminal:**
    ```bash
    git add assignment/solution.js
    git commit -m "Add solution"
    git push
    ```
 
-Both routes run the exact same Git underneath. The Source Control tab is a
-set of buttons over `git add` / `git commit` / `git push`; the sidebar
-Explorer is just a view of the same files on disk. Same repo, two doors in.
+Both do the same thing. The Source Control tab is just buttons for
+`git add` / `git commit` / `git push`.
 
 ## 5. Submit
 
@@ -150,20 +150,15 @@ Fill in the submission form (link on the CMS) with:
 - Your GitHub username
 - Your repo's URL
 
-Make sure `question.md` and `solution.js` are both pushed before you submit
-— the grader clones exactly what's on GitHub, not what's on your laptop.
+Push **before** you submit. We only check what's on GitHub.
 
 ## Troubleshooting
 
-- **`git` or `node` not found:** reopen your terminal (or VS Code) after
-  installing. A terminal opened before the install doesn't see it.
-- **Windows: `ls` doesn't work.** Git Bash supports `ls` fine. PowerShell
-  and Command Prompt use `dir` instead — or just use Git Bash / VS Code's
-  terminal, which defaults to something `ls`-compatible.
-- **`node step1/hi.js` "worked" from the root:** it shouldn't have. Re-read
-  the error output — if you're not seeing it, make sure you're running the
-  file at `step1/hi.js`, unmodified.
-- **`node init.js` complains about the git remote:** you probably
+- **`git` or `node` says "not found":** close and reopen your terminal.
+- **Windows: `ls` doesn't work.** Use Git Bash, or type `dir` instead.
+- **`Cannot find module`:** Node can't find the file where you are. Either
+  `cd` into the right folder, or type the full path to the file.
+- **`init.js` or `generate.js` shows a git error:** you may have
   downloaded a ZIP instead of cloning. Go back to step 2.
-- **`generate.js` can't find a GitHub owner:** same cause — make sure you
-  cloned your own generated repo (not the template itself, not a ZIP).
+- **A step's file is missing:** each step is created by the one before it.
+  Run `init.js`, then `hi.js`, then `okay.js`, in that order.

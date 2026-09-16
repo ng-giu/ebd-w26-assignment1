@@ -1,7 +1,9 @@
 // Preflight checks. Run this first: `node init.js`.
-// Catches a broken setup here instead of at the last step.
+// If everything checks out, this creates step1/hi.js — your next step.
 "use strict";
 
+const fs = require("fs");
+const path = require("path");
 const { execSync } = require("child_process");
 
 function run(cmd) {
@@ -88,4 +90,16 @@ if (!allOk) {
   process.exit(1);
 }
 
-console.log("Everything looks good. Next: cd step1 && node hi.js");
+console.log("Everything looks good.");
+
+const step1Dir = path.join(__dirname, "step1");
+fs.mkdirSync(step1Dir, { recursive: true });
+fs.copyFileSync(
+  path.join(__dirname, "lib", "steps", "hi.js"),
+  path.join(step1Dir, "hi.js")
+);
+
+console.log("");
+console.log("Created step1/hi.js");
+console.log("");
+console.log("Next: run hi.js");
