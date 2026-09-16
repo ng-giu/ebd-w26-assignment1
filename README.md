@@ -19,7 +19,24 @@ Install these, in order:
 **Windows:** close and reopen VS Code (and any terminal) after installing.
 It won't see `node` until you do.
 
-Open a terminal (VS Code: **Terminal → New Terminal**) and check both installed:
+Now open a terminal:
+
+1. Open VS Code.
+2. Click **Terminal** in the top menu bar.
+3. Click **New Terminal**.
+
+A panel opens at the bottom of the window — that's the terminal. Click
+inside it, type, then press **Enter** to run a command.
+
+**Commands** (like the ones below) go in the terminal. **Code and text**
+(like `solution.js`, later) go in a file, written in the editor — never
+typed into the terminal. ("Terminal," "shell," "command line," "CLI" all
+mean the same thing, just different names people use for it.)
+
+To see your files: look at the **Explorer** sidebar (the file list on the
+left), or type `ls` (Mac/Linux/Git Bash) or `dir` (Windows) in the terminal.
+
+Check both tools installed:
 
 ```bash
 git --version
@@ -67,7 +84,8 @@ You'll need to do this every time you come back to this project.
 ## 3. Work through it, from the terminal
 
 Everything from here happens in a terminal, inside your project folder.
-Open one: **Terminal → New Terminal**.
+Open one: **Terminal → New Terminal** — since your project is open in
+VS Code, it starts right there.
 
 This folder only has one file to run right now: `init.js`. Start there:
 
@@ -136,8 +154,10 @@ what to do.
 
 Then:
 
-1. Create `solution.js` in the `assignment/` folder. Make it print what
-   `question.md` asks, in the same order.
+1. Create `solution.js` in the `assignment/` folder: right-click
+   **assignment** in the Explorer sidebar → **New File** → type the name
+   → Enter. Write your code in the editor, not the terminal. Make it
+   print what `question.md` asks, in the same order.
 2. Check it:
    ```bash
    node solution.js
@@ -178,6 +198,8 @@ Push **before** you submit. We only check what's on GitHub.
 
 - **VS Code opens but your project isn't there:** see "Opening the folder
   again later" in step 2.
+- **Don't see a terminal:** click **Terminal → New Terminal** in the top
+  menu.
 - **`git` or `node` says "not found":** close and reopen your terminal.
 - **Windows: `ls` doesn't work.** Use Git Bash, or type `dir` instead.
 - **`Cannot find module`:** Node can't find the file where you are. Either
